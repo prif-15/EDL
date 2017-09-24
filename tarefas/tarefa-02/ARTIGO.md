@@ -232,6 +232,7 @@ public class Gato extends Animal{
     public void setRaca(String raca) { this.raca = raca;}     
 }
 ```
+
  *Classe Cachorro*
 ```java
 package javaclasses;
