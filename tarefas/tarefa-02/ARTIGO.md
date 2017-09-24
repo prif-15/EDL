@@ -131,6 +131,7 @@ Pessoa.metaClass.getNomeCompleto = { nome + ", " + sobrebome }
 
 println new Pessoa(nome:'groovy', sobrenome : 'Grails').getNomeCompleto()
 ```
+
 * Adicionando comportamentos diferentes em objetos da mesma classe
  ### Em Groovy
 ```groovy
@@ -178,7 +179,7 @@ println " "
 assert cat.miar() == "au au"
 ```
 ### Em Java
- ** Classe Animal
+ **Classe Animal
 ```java
 package javaclasses;
 
@@ -200,7 +201,7 @@ public class Animal {
       public String getTipo() { return this.tipo;}              
 }
 ```
- ** Classe Gato
+ **Classe Gato
 ```java
 package javaclasses;
 
@@ -235,7 +236,7 @@ public class Gato extends Animal{
     public void setRaca(String raca) { this.raca = raca;}     
 }
 ```
- ** Classe Cachorro
+ **Classe Cachorro
 ```java
 package javaclasses;
 
@@ -269,7 +270,7 @@ public class Cachorro extends Animal{
     public void setRaca(String raca) { this.raca = raca;}    
 }
 ```
- ** Programa Principal
+ **Programa Principal
 ```java
 package javaclasses;
 
@@ -350,7 +351,7 @@ println "p2 telefone = " + p2.telefone
 println "Idioma = " + p2.idioma
 ```
 ### Em Java
-** Classe Pessoa
+**Classe Pessoa
 ```java
 package javaexemplo;
 
@@ -369,7 +370,7 @@ public class Pessoa {
   public int getIdade() { return this.idade;}   
 }
 ```
- ** Classe PessoaExtendido
+ **Classe PessoaExtendido
 ```java
 package javaexemplo;
 
@@ -398,7 +399,7 @@ public class PessoaExtendido extends Pessoa{
       } 
 }
 ```
-** Programa PessoaMaisExtendido
+**Programa PessoaMaisExtendido
 ```java
 package javaexemplo;
 
@@ -438,7 +439,7 @@ public class PessoaMaisExtendido extends PessoaExtendido{
     }
 }
 ```
-** Programa Principal
+**Programa Principal
 ```java
 package javaexemplo;
 
