@@ -34,7 +34,7 @@ Groovy tem as seguintes características:
 5. Quanto à legibilidade temos as seguintes características:
     5.1 O Groovy fornece métodos de fácil escrita, como:
 	*System.out.println(“ola”)*    //em java
-	 *println ()*		//em groovy
+	*println ()*		//em groovy
 
     5.2 Groovy suporta a suporta a substituição de variáveis usando aspas duplas, ou seja, você pode imprimir conteúdo dinâmico sem usar concatenação de string, por exemplo: 
 	*println ( “Bom dia $nome!” );*
