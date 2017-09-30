@@ -33,8 +33,10 @@ Groovy tem as seguintes características:
 
 5. Quanto à legibilidade temos as seguintes características:
     5.1 O Groovy fornece métodos de fácil escrita, como:
-	*System.out.println(“ola”)*    //em java
-	*println ()*		//em groovy
+	```groovy
+	System.out.println(“ola”)    //em java
+	println ()*		//em groovy
+	```
 
     5.2 Groovy suporta a suporta a substituição de variáveis usando aspas duplas, ou seja, você pode imprimir conteúdo dinâmico sem usar concatenação de string, por exemplo: 
 	*println ( “Bom dia $nome!” );*
@@ -81,7 +83,7 @@ Os exemplos abaixo demonstram que a linguagem Groovy tem uma legibilidade maior 
 
 ### Hello World 
 - java
-```
+```java
 public class HelloWorld {
    public static void main(String[] args) {
       System.out.println("Hello World!");
@@ -89,13 +91,13 @@ public class HelloWorld {
 }
 ```
 - groovy
-```
+```groovy
 println "Hello World!"
 ```
 
 ### Criando um List e um Map em Java
  - java
-```
+```java
 List minhaLista = new ArrayList();
 minhaLista.add("maçã");
 minhaLista.add("laranja");
@@ -106,14 +108,15 @@ meuMap.put(6, "seis");
 meuMap.put(1, "um");
 ```
 - groovy
-```
+```groovy
 List minhaLista = ["maçã", "laranja", "limão"]
 Map meuMap = [3: "três", 6: "seis", 1: "um"];
 ```
 
 ### Conversão de Tipos 
 - java 
-``` package javatipos;
+```java 
+package javatipos;
     public class JavaTipos {
         public static void main(String[] args) {
                 String a = "10";
@@ -145,7 +148,7 @@ Em Groovy isso é feito de forma mais simples por se tratar de uma linguagem com
 
 ### Java
  _Classe Pessoa_
-```
+```java
 package projetoexemplo;
 
 public class Pessoa {
@@ -175,7 +178,7 @@ public class Pessoa {
 ```
 
 _Classe Main_
-```
+```java
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
@@ -232,7 +235,7 @@ public class ProjetoExemplo {
 ```
 
 ### Groovy
-```
+```groovy
 import java.lang.reflect.Modifier
 
 class Pessoa {
@@ -303,7 +306,7 @@ O uso de Metaclasse permite que classes e objetos sejam alterados em tempo de ex
 ### Exemplo de códigos representativos 
 * Adicionando um novo método à classe String
 
-``` 
+```groovy
 String.metaClass.digaOla = { lang -> if (lang == 'English') println 'Hello'
 else  if (lang == 'Swedish') println 'Hej'
 }
@@ -312,7 +315,7 @@ else  if (lang == 'Swedish') println 'Hej'
 ```
 
 * Adicionando comportamentos diferentes em objetos da mesma classe
-```
+```groovy
  class Animal {
   String nome
   String tipo
@@ -356,7 +359,7 @@ assert dor.latir() == "au au"
 
 ```
 * Adicionando novos atributos em classe e objetos
-```
+```groovy
 class Pessoa {
   String nome
   int idade
