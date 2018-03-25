@@ -196,29 +196,53 @@ function novoInimigo (x,y,estadoCaminho, vida, velocidade, imagem)
 								
 		-- tarefa - 08 - Co-rotina de movimentacao do inimigo
 		
-			co_rotina = coroutine.create(function (dt)
-							while true do
-								local multiplicadorDeDirecao = constantes_limiteCaminhoEstados[objetoInimigo.getEstadoCaminho()].multiplicadorDeDirecaoDoEstado
-										objetoInimigo.setDir(objetoInimigo.getVelocidade())
-										
-										if objetoInimigo.getEstadoCaminho() % 2 == 0 then
-											posicaoFinal = (constantes_limiteCaminhoEstados[objetoInimigo.getEstadoCaminho()].baixo[2] + constantes_limiteCaminhoEstados[objetoInimigo.getEstadoCaminho()].cima[2]) / 2
-											if ( (multiplicadorDeDirecao > 0) and (objetoInimigo.getY() < posicaoFinal) ) or ( (multiplicadorDeDirecao < 0) and (objetoInimigo.getY() > posicaoFinal) )then
-												objetoInimigo.setY(multiplicadorDeDirecao*objetoInimigo.getVelocidade()* dt)
-											else
-												objetoInimigo.setEstadoCaminho(1)
-											end
-										else
-											posicaoFinal = (constantes_limiteCaminhoEstados[objetoInimigo.getEstadoCaminho()].baixo[1] + constantes_limiteCaminhoEstados[objetoInimigo.getEstadoCaminho()].cima[1]) / 2
-											if ( (multiplicadorDeDirecao > 0) and (objetoInimigo.getX() < posicaoFinal) ) or ( (multiplicadorDeDirecao < 0) and (objetoInimigo.getX() > posicaoFinal) )then
-												objetoInimigo.setX(multiplicadorDeDirecao * objetoInimigo.getVelocidade() * dt)
-											else
-												objetoInimigo.setEstadoCaminho(1)
-											end
-										end
-									dt = coroutine.yield()
-							end
-						end),
+		co_rotina = coroutine.create(function (dt)
+			
+				--Estado Caminho 1 (inicio)
+				local posicaoFinal = (constantes_limiteCaminhoEstados[objetoInimigo.getEstadoCaminho()].baixo[1] + constantes_limiteCaminhoEstados[objetoInimigo.getEstadoCaminho()].cima[1]) / 2
+				
+				while (objetoInimigo.getX() < posicaoFinal) do
+					objetoInimigo.setX(1*objetoInimigo.getVelocidade()*dt)
+					dt = coroutine.yield()
+				end
+				objetoInimigo.setEstadoCaminho(1)
+					
+							
+				--Estado Caminho 2
+				posicaoFinal = (constantes_limiteCaminhoEstados[objetoInimigo.getEstadoCaminho()].baixo[2] + constantes_limiteCaminhoEstados[objetoInimigo.getEstadoCaminho()].cima[2]) / 2
+				while (objetoInimigo.getY() < posicaoFinal) do
+					objetoInimigo.setY(1*objetoInimigo.getVelocidade()* dt)
+					dt = coroutine.yield()
+				end
+				objetoInimigo.setEstadoCaminho(1)
+						
+							
+				--Estado Caminho 3
+				posicaoFinal = (constantes_limiteCaminhoEstados[objetoInimigo.getEstadoCaminho()].baixo[1] + constantes_limiteCaminhoEstados[objetoInimigo.getEstadoCaminho()].cima[1]) / 2
+				while (objetoInimigo.getX() < posicaoFinal) do
+					objetoInimigo.setX(1*objetoInimigo.getVelocidade()*dt)
+					dt = coroutine.yield()
+				end
+				objetoInimigo.setEstadoCaminho(1)
+						
+					
+				--Estado Caminho 4
+				posicaoFinal = (constantes_limiteCaminhoEstados[objetoInimigo.getEstadoCaminho()].baixo[2] + constantes_limiteCaminhoEstados[objetoInimigo.getEstadoCaminho()].cima[2]) / 2
+				while (objetoInimigo.getY() > posicaoFinal) do
+					objetoInimigo.setY(-1*objetoInimigo.getVelocidade()*dt)
+					dt = coroutine.yield()
+				end
+				objetoInimigo.setEstadoCaminho(1)
+
+							
+				--Estado Caminho 5 (final)
+				posicaoFinal = (constantes_limiteCaminhoEstados[objetoInimigo.getEstadoCaminho()].baixo[1] + constantes_limiteCaminhoEstados[objetoInimigo.getEstadoCaminho()].cima[1]) / 2
+				while (objetoInimigo.getX() < posicaoFinal) do
+					objetoInimigo.setX(1*objetoInimigo.getVelocidade()*dt)
+					dt = coroutine.yield()
+				end
+				objetoInimigo.setEstadoCaminho(1)
+			end),
     }
     return objetoInimigo
 end
